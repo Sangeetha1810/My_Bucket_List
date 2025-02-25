@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bucket List</title>
+    <style>
+        /* Background: Adventure Themed Gradient */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #fff; /* White text for better contrast */
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #1e3c72, #ff4b1f); /* Blue to Red */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Parallax Background */
+        .parallax {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: url('https://source.unsplash.com/1600x900/?adventure,mountains,explore') no-repeat center center/cover;
+            z-index: -2;
+            opacity: 0.3;
+        }
+
+        /* Header Styling */
+        h1 {
+            font-size: 2.8em;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Bucket List Styling */
+        .bucket-list {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bucket-list li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 10px auto;
+            padding: 15px;
+            width: 60%;
+            border-radius: 12px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #fff;
+        }
+
+        /* Hover Effect */
+        .bucket-list li:hover {
+            transform: scale(1.05);
+            background: rgba(255, 235, 205, 0.5); /* Warm glow */
+        }
+
+        /* Completed tasks */
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+            background: rgba(144, 238, 144, 0.8) !important; /* Soft green */
+            color: #0f5132;
+            box-shadow: 2px 2px 10px rgba(0, 128, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bucket-list li {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax"></div>
+
+    <header>
+        <h1>My Bucket List</h1>
+        <p>Explore, dream, and check things off! 🌍✨</p>
+    </header>
+
+    <main>
+        <ul class="bucket-list">
+            <li onclick="toggleComplete(this)">❌ Take a Hike ⛰️</li>
+            <li onclick="toggleComplete(this)">❌ Bungee Jump 🪂</li>
+            <li onclick="toggleComplete(this)">❌ Do Something for Myself 💖</li>
+            <li onclick="toggleComplete(this)">❌ Own a Pet 🐶🐱</li>
+            <li onclick="toggleComplete(this)">❌ Go on a Long Road Trip 🚗</li>
+            <li onclick="toggleComplete(this)">❌ Find a Job 💼</li>
+            <li onclick="toggleComplete(this)">❌ Scare someone with a terrifying ghost prank. 👻😱</li>
+        </ul>
+    </main>
+
+    <script>
+        function toggleComplete(item) {
+            item.classList.toggle("completed");
+            item.innerHTML = item.innerHTML.includes("❌") 
+                ? item.innerHTML.replace("❌", "✅") 
+                : item.innerHTML.replace("✅", "❌");
+        }
+    </script>
+</body>
+</html>
